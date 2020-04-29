@@ -7,7 +7,6 @@ from django.views.generic import (
     DeleteView,
 )
 from .models import Post
-from django.core.paginator import Paginator
 
 
 class PostListView(ListView):
