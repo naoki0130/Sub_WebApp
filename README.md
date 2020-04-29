@@ -1,3 +1,53 @@
+# pyenv command
+
+## 仮想環境
+
+```
+pyenv install x
+pyenv virtualenv x ~~
+Pyenv local ~~
+```
+
+# git command
+
+## デプロイまで
+
+```
+git add .
+git commit
+git push origin master
+
+git push heroku master 
+(heroku config:set DISABLE_COLLECTSTATIC=1)
+heroku run python manage.py migrate
+heroku open
+```
+
+## git 消去
+
+```
+rm -rf .git/
+```
+
+## git remote
+
+```
+git remote add origin ~~
+```
+
+# heroku command
+
+## heroku アプリ作成
+
+```
+heroku create 
+heroku open --app アプリ名
+heroku run python manage.py createsuperuser
+heroku apps:destroy --app (app名) --confirm (app名）
+
+heroku ps:scale web=1
+```
+
 # django ページング
 
 bootstrapで綺麗に！！
