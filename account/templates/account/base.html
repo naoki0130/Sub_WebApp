@@ -55,7 +55,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="{% url 'blog-home' %}">
-                            <h1>Web App</h1><span>Asterのブログだよ！！</span></a>
+                            <h1>THE 就活</h1><span>就活シンドイよ🌟</span></a>
                     </div>
 
 
@@ -355,12 +355,19 @@
                         <h4>Useful Links</h4>
                         <hr/>
                         <ul class="footer-links">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Sign In</a></li>
-                            <li><a href="#">Sign Up</a></li>
+                            <li><a href="{% url 'blog-home' %}">Home</a></li>
+                            <li><a href="{% url 'features' %}">Features</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                            <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}">Log Out</a></li>
+                            <li><a href="#">Profile</a></li>
+                            {% else %}
+                            <li><a href="{% url 'login' %}">Log In</a></li>
+                            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
