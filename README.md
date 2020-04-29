@@ -1,3 +1,92 @@
+# pyenv command
+
+## 仮想環境
+
+```
+pyenv install x
+pyenv virtualenv x ~~
+Pyenv local ~~
+```
+
+# git command
+
+## デプロイまで
+
+```
+git add .
+git commit
+git push origin master
+
+git push heroku master 
+(heroku config:set DISABLE_COLLECTSTATIC=1)
+heroku run python manage.py migrate
+heroku open
+```
+
+## git 消去
+
+```
+rm -rf .git/
+```
+
+## git remote
+
+```
+git remote add origin ~~
+```
+
+# heroku command
+
+## heroku アプリ作成
+
+```
+heroku create 
+heroku open --app アプリ名
+heroku run python manage.py createsuperuser
+heroku apps:destroy --app (app名) --confirm (app名）
+
+heroku ps:scale web=1
+```
+
+# django ページング
+
+bootstrapで綺麗に！！
+
+```
+{% for post in post_list %}
+    <p>{{ post.title }}</p>
+{% endfor %}
+
+<ul class="pagination">
+    <!-- 前へ の部分 -->
+    {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+    {% endif %}
+
+    <!-- 数字の部分 -->
+    {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <li class="page-item active"><a class="page-link" href="#!">{{ num }}</a></li>
+        {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    <!-- 次へ の部分 -->
+    {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    {% endif %}
+</ul>
+```
+
 # Python: Getting Started
 
 A barebones Django app, which can easily be deployed to Heroku.
