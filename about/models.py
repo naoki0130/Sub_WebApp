@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 
 
-class Post(models.Model):
+class Todo(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -14,4 +14,4 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("post-detail", kwargs={"pk": self.pk})
+        return reverse("todo-detail", kwargs={"pk": self.pk})

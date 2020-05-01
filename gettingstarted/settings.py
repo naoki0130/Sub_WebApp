@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "account.apps.AccountConfig",
     "features.apps.FeaturesConfig",
     "contact.apps.ContactConfig",
+    "about.apps.AboutConfig",
     "crispy_forms",
 ]
 

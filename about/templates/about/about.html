@@ -17,7 +17,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-sm-8 col-xs-6">
-                        <h4>書くことないから機動戦士ガンダムの組織を下に紹介してるよ！</h4>
+                        <h4>今日1日の日記✏️</h4>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xs-6" style="text-align:right;">Home<span class="sep"> 	/ </span><span class="current"> About</span></div>
                 </div>
@@ -28,18 +28,68 @@
     </section>
 
 
-    <section id="about-page-section-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 text-align">
+    <section id="about">
+        <div class="image-holder col-lg-6 col-md-6 col-sm-6 col-xs-12 pull-left">
+            <div class="background-imgholder">
+                <img src="{% static 'img/dc.jpg' %}" alt="about" class="img-responsive" style="display:none;" />
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+
+            <div class="col-md-7 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-12 text-inner ">
+                <div class="text-block">
                     <div class="section-heading">
-                        <h2>About <span>Today</span></h2>
-                        <p class="subheading">今日1日の日記✏️</p>
+                        
+                        <p>投稿するにはログインが必要です</p>
+                        <form action="{% url 'todo-create' %}">
+                            <button type="submit" class="btn btn-primary slide">New Post  <i class="fa fa-caret-right"></i> </button>
+                        </form>
+
+                        {% for post in posts %}
+                        <h1><a href="{% url 'todo-detail' post.id %}">{{ post.title }} </a><small>written by </small><span>{{ post.author }}</span></h1>
+                        <p class="subheading">{{ post.date_posted|date:"Y-m-d P" }}</p>
+
+
+                        <ul class="aboutul">
+                            <li></i>{{ post.content | linebreaksbr }}</li>
+
+                        </ul>
+                        <hr>
+                        {% endfor %}
+
+                        <ul class="pagination justify-content-end">
+                            <!-- 前へ の部分 -->
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        
+                            <!-- 数字の部分 -->
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <li class="page-item active"><a class="page-link" href="#!">{{ num }}</a></li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        
+                            <!-- 次へ の部分 -->
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+
                     </div>
-                    
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
-                    <img height="" width="auto" src="img/iphone62.png" class="attachment-full img-responsive" alt="">
+
                 </div>
             </div>
         </div>
