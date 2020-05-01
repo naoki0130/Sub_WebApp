@@ -24,6 +24,7 @@ class TodoDetailView(DetailView):
 class TodoCreateView(LoginRequiredMixin, CreateView):
     model = Todo
     fields = ["title", "content"]
+    success_url = "/about"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -47,7 +48,7 @@ class TodoUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class TodoDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Todo
-    success_url = "/"
+    success_url = "/about"
 
     def test_func(self):
         post = self.get_object()
