@@ -34,6 +34,7 @@ class TodoCreateView(LoginRequiredMixin, CreateView):
 class TodoUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Todo
     fields = ["title", "content"]
+    success_url = "/about"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
