@@ -12,11 +12,11 @@
   </ul>
   <hr />
 
-  <form action="{% url 'todo-update' post.id %}">
+  <form action="{% url 'todo-update' todo.id %}">
     <button type="submit" class="btn btn-success slide">Update</button>
   </form>
   <br />
-  <form action="{% url 'todo-delete' post.id %}">
+  <form action="{% url 'todo-delete' todo.id %}">
     <button type="submit" class="btn btn-danger slide">Delete</button>
   </form>
 </center>
