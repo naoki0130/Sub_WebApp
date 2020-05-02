@@ -48,6 +48,37 @@ heroku apps:destroy --app (app名) --confirm (app名）
 heroku ps:scale web=1
 ```
 
+# iframeのレスポンシブ対応方法
+YouTubeの共有から埋め込みを選択してコピペ
+
+### html
+```
+<div class="iframe-wrap">
+　<iframe src="埋め込むページのURL" frameboader="0"></iframe>
+</div>
+```
+
+### css
+```
+.iframe-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow:auto; 
+  -webkit-overflow-scrolling:touch;
+  border:2px solid #ccc; 
+}
+.iframe-wrap iframe {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
+}
+```
+
 # django ページング
 
 bootstrapで綺麗に！！
