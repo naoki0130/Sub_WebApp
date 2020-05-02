@@ -81,7 +81,7 @@ YouTubeの共有から埋め込みを選択してコピペ
 
 # django ページング
 
-###bootstrapで綺麗に！！
+### bootstrapで綺麗に！！
 
 ```
 {% for post in post_list %}
