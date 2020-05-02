@@ -1,6 +1,6 @@
 # pyenv command
 
-## 仮想環境
+### 仮想環境
 
 ```
 pyenv install x
@@ -10,7 +10,7 @@ Pyenv local ~~
 
 # git command
 
-## デプロイまで
+### デプロイまで
 
 ```
 git add .
@@ -23,13 +23,13 @@ heroku run python manage.py migrate
 heroku open
 ```
 
-## git 消去
+### git 消去
 
 ```
 rm -rf .git/
 ```
 
-## git remote
+### git remote
 
 ```
 git remote add origin ~~
@@ -37,7 +37,7 @@ git remote add origin ~~
 
 # heroku command
 
-## heroku アプリ作成
+### heroku アプリ作成
 
 ```
 heroku create 
@@ -81,7 +81,7 @@ YouTubeの共有から埋め込みを選択してコピペ
 
 # django ページング
 
-bootstrapで綺麗に！！
+###bootstrapで綺麗に！！
 
 ```
 {% for post in post_list %}
