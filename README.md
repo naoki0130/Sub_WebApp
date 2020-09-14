@@ -1,3 +1,14 @@
+# django command
+
+```
+django-admin startproject ex
+python manage.py runserver
+python manage.py startapp polls
+python manage.py makemigrations 
+python manage.py migrate
+
+```
+
 # pyenv command
 
 ### 仮想環境
