@@ -6,7 +6,7 @@ python manage.py runserver
 python manage.py startapp polls
 python manage.py makemigrations 
 python manage.py migrate
-
+ python manage.py createsuperuser
 ```
 
 # pyenv command
